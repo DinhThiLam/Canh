@@ -1,0 +1,7 @@
+E:\CĐN\CanhDT\CanhDT\bin\Debug\CanhDT.exe.config
+E:\CĐN\CanhDT\CanhDT\bin\Debug\CanhDT.exe
+E:\CĐN\CanhDT\CanhDT\bin\Debug\CanhDT.pdb
+E:\CĐN\CanhDT\CanhDT\obj\Debug\CanhDT.csproj.AssemblyReference.cache
+E:\CĐN\CanhDT\CanhDT\obj\Debug\CanhDT.csproj.CoreCompileInputs.cache
+E:\CĐN\CanhDT\CanhDT\obj\Debug\CanhDT.exe
+E:\CĐN\CanhDT\CanhDT\obj\Debug\CanhDT.pdb
