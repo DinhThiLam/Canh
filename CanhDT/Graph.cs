@@ -8,36 +8,42 @@ namespace CanhDT
 {
     class Graph
     {
-        private int numVertices;
+        public  int sldinh { get; private set; }
         private int[,] adjacencyMatrix;
 
-        public Graph(int numVertices)
+        public Graph(int sldinh)
         {
-            this.numVertices = numVertices;
-            adjacencyMatrix = new int[numVertices, numVertices];
+            this.sldinh = sldinh;
+            adjacencyMatrix = new int[sldinh, sldinh];
         }
 
-        public void AddEdge(int source, int destination)
+        public void AddEdge(int dinhdau, int dinhden)
         {
-            if (source >= 0 && source < numVertices && destination >= 0 && destination < numVertices)
+            if (dinhdau >= 0 && dinhdau < sldinh && dinhden >= 0 && dinhden < sldinh)
             {
-                adjacencyMatrix[source, destination] = 1;
-                adjacencyMatrix[destination, source] = 1; // Đối xứng cho đồ thị vô hướng
+                adjacencyMatrix[dinhdau, dinhden] = 1;
+                adjacencyMatrix[dinhden, dinhdau] = 1; // Đối xứng cho đồ thị vô hướng
             }
             else
             {
                 Console.WriteLine("Dinh nguon hoac dinh dich khong hop le.");
             }
         }
+        public void RemoveEdge(int dinhdau, int dinhden)
+        {
+            adjacencyMatrix[dinhdau, dinhden] = 0;
+            adjacencyMatrix[dinhden, dinhdau] = 0; // Đối với đồ thị vô hướng
+        }
 
         public void DisplayMatrix()
         {
             Console.WriteLine("Ma tran ke:");
-            for (int i = 0; i < numVertices; i++)
+            for (int i = 0; i < sldinh; i++)
             {
-                for (int j = 0; j < numVertices; j++)
+                for (int j = 0; j < sldinh; j++)
                 {
-                    Console.Write(adjacencyMatrix[i, j] + " ");
+                    Console.Write(adjacencyMatrix[i, j] + "\t");
+                    
                 }
                 Console.WriteLine();
             }
