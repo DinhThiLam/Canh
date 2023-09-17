@@ -49,7 +49,9 @@ namespace CanhDT
             graph.AddEdge(5, 6, 3);
             Console.WriteLine("\n Ma tran ke sau khi them canh:");
             graph.DisplayMatrix();
+
         /*---------------------   // Sua trong so   -------------------*/
+
             graph.UpdateCanh(1, 4, 7);
             Console.WriteLine("\n Ma tran sau khi Update trong so");
             graph.DisplayMatrix();
@@ -63,8 +65,13 @@ namespace CanhDT
             graph.DisplayMatrix();
             Console.ReadLine();
 
+        /*---------------- // Xoa -----------------------*/
 
-            
+            graph.RemoveEdge(0, 1);
+            Console.WriteLine("\n Ma tran ke sau khi xoa canh:");
+            graph.DisplayMatrix();
+            Console.ReadLine();
+
         }
     }
 }

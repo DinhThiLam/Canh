@@ -113,8 +113,31 @@ namespace CanhDT
         
         public void RemoveEdge(int dinhdau, int dinhden)
         {
-            adjacencyMatrix[dinhdau, dinhden] = 0;
-            adjacencyMatrix[dinhden, dinhdau] = 0; // Đối với đồ thị vô hướng
+            int dinhDauIndex = -1;
+            int dinhDenIndex = -1;
+            // Tìm chỉ số (index) của đỉnh đầu và đỉnh đích trong danh sách đỉnh
+            for (int i = 0; i < sldinh; i++)
+            {
+                if (vertices[i] == dinhdau)
+                {
+                    dinhDauIndex = i;
+                }
+
+                if (vertices[i] == dinhden)
+                {
+                    dinhDenIndex = i;
+                }
+            }
+            if (dinhDauIndex != -1 && dinhDenIndex != -1)
+            {
+                adjacencyMatrix[dinhDauIndex, dinhDenIndex] = 0;
+                // adjacencyMatrix[dinhDenIndex, dinhDauIndex] = trongso; // Đối xứng cho đồ thị vô hướng
+            }
+            else
+            {
+                Console.WriteLine("Dinh nguon hoac dinh dich khong hop le.");
+            }
+           
         }
 
 
