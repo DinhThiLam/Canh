@@ -73,7 +73,7 @@ namespace CanhDT
         public void RandomCanh(Graph graph , int canh)
 
         {
-                Random random = new Random();  // Tạo một đối tượng Random để tạo số ngẫu nhiên
+                Random random = new Random();  // 
             for (int i = 0; i < sldinh; i++)  // Số cạnh ngẫu nhiên
             {
                 int dinhDau = random.Next(graph.sldinh);  // Lựa chọn ngẫu nhiên một đỉnh đầu
@@ -83,11 +83,12 @@ namespace CanhDT
             }
 
         }
+
+        
         public void UpdateCanh(int dinhdau, int dinhden, int trongsomoi)
         {
             int dinhDauIndex = -1;
             int dinhDenIndex = -1;
-            // Tìm chỉ số (index) của đỉnh đầu và đỉnh đích trong danh sách đỉnh
             for (int i = 0; i < sldinh; i++)
             {
                 if (vertices[i] == dinhdau)
