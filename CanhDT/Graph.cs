@@ -21,23 +21,9 @@ namespace CanhDT
             weightMatrix = new int[sldinh, sldinh];
             vertices = new List<int>();
         }
-     /*   private bool IsVertext(int vertextName) // check trung
-        {
-            for (int i = 0; i < sldinh; i++)
-            {
-                if (vertices[i] == vertextName)
-                    return true;
+    
 
-            }
-            return false;
-        }
-        private int getIndexFromVertextName(int vertextName) // tra dia chi de biet noi canh
-        {
-            for (int i = 0; i < sldinh; i++)
-                if (vertices[i] == vertextName) return i;
-            return -1;
 
-        }   */
         public void AddEdgeWeight(int dinhdau, int dinhden, int trongso)
         {
             if (dinhdau >= 0 && dinhdau < sldinh && dinhden >= 0 && dinhden < sldinh)
@@ -50,11 +36,14 @@ namespace CanhDT
                 Console.WriteLine("Dinh nguon hoac dinh dich khong hop le.");
             }
         }
+
+
         
         public void AddEdge(int dinhdau, int dinhden, int trongso )
         {
             int dinhDauIndex = -1;
             int dinhDenIndex = -1;
+            // Tìm chỉ số (index) của đỉnh đầu và đỉnh đích trong danh sách đỉnh
             for (int i = 0; i < sldinh; i++)
             {
                 if (vertices[i] == dinhdau)
@@ -70,26 +59,68 @@ namespace CanhDT
             if (dinhDauIndex != -1 && dinhDenIndex != -1)
             {
                 adjacencyMatrix[dinhDauIndex, dinhDenIndex] = trongso;
-               // adjacencyMatrix[dinhDenIndex, dinhDauIndex] = trongso; // Đối xứng cho đồ thị vô hướng
+                // adjacencyMatrix[dinhDenIndex, dinhDauIndex] = trongso; // Đối xứng cho đồ thị vô hướng
             }
             else
             {
                 Console.WriteLine("Dinh nguon hoac dinh dich khong hop le.");
-                
             }
 
 
         }
+
+
+        public void RandomCanh(Graph graph , int canh)
+
+        {
+                Random random = new Random();  // Tạo một đối tượng Random để tạo số ngẫu nhiên
+            for (int i = 0; i < sldinh; i++)  // Số cạnh ngẫu nhiên
+            {
+                int dinhDau = random.Next(graph.sldinh);  // Lựa chọn ngẫu nhiên một đỉnh đầu
+                int dinhDen = random.Next(graph.sldinh); // Lựa chọn ngẫu nhiên một đỉnh đích
+                int trongSo = random.Next(1, 11);       // Trọng số ngẫu nhiên từ 1 đến 10
+                graph.AddEdge(dinhDau, dinhDen, trongSo);
+            }
+
+        }
+        public void UpdateCanh(int dinhdau, int dinhden, int trongsomoi)
+        {
+            int dinhDauIndex = -1;
+            int dinhDenIndex = -1;
+            // Tìm chỉ số (index) của đỉnh đầu và đỉnh đích trong danh sách đỉnh
+            for (int i = 0; i < sldinh; i++)
+            {
+                if (vertices[i] == dinhdau)
+                {
+                    dinhDauIndex = i;
+                }
+
+                if (vertices[i] == dinhden)
+                {
+                    dinhDenIndex = i;
+                }
+            }
+            if(dinhDauIndex != -1 && dinhDenIndex != -1)
+            {
+                adjacencyMatrix[dinhDauIndex, dinhDenIndex] = trongsomoi;
+            }
+            else
+            {
+                Console.WriteLine("Dinh nguon hoac dinh dich khong hop le.");
+            }
+        }
+
         
         public void RemoveEdge(int dinhdau, int dinhden)
         {
             adjacencyMatrix[dinhdau, dinhden] = 0;
             adjacencyMatrix[dinhden, dinhdau] = 0; // Đối với đồ thị vô hướng
         }
+
+
         
         public void DisplayMatrix()
         {
-            Console.WriteLine("Ma tran ke:");
             for (int i = 0; i < sldinh; i++)
             {
                 for (int j = 0; j < sldinh; j++)
@@ -100,6 +131,8 @@ namespace CanhDT
                 Console.WriteLine();
             }
         }
+
+
         
         public void DisplayWeightMatrix()
         {

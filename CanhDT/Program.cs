@@ -8,14 +8,30 @@ namespace CanhDT
 {
     class Program
     {
-        
+
+        // theem canh trong so
+        /*  graph.AddEdgeWeight(1, 4, 5);
+          Console.WriteLine("\n Ma tran trong so:");
+          graph.DisplayWeightMatrix();
+          Console.ReadLine();
+        */
+        /* Console.WriteLine("Nhap vao dinh dau: ");
+            int dinhdau =  int.Parse(Console.ReadLine());
+            int dinhcuoi = int.Parse(Console.ReadLine());
+            int trongso =  int.Parse(Console.ReadLine());
+            //graph.AddEdge(dinhdau, dinhdau, trongso);
+           */
+        /* graph.RemoveEdge(0, 1);
+          Console.WriteLine("\n Ma tran ke sau khi xoa canh:");
+          graph.DisplayMatrix();
+         Console.ReadLine();
+           */
 
 
         static void Main(string[] args)
         {
-            int vertices = 5; // Số lượng đỉnh trong đồ thị
+            int vertices = 5;  
             Graph graph = new Graph(vertices);
-
             graph.vertices.Add(0);
             graph.vertices.Add(1);
             graph.vertices.Add(4);
@@ -24,35 +40,31 @@ namespace CanhDT
             Console.WriteLine("Ma tran ke ban dau:");
             graph.DisplayMatrix();
 
-            // theem canh trong so
-            /*  graph.AddEdgeWeight(1, 4, 5);
-              Console.WriteLine("\n Ma tran trong so:");
-              graph.DisplayWeightMatrix();
-              Console.ReadLine();
-            */
-            // Thêm cạnh
-           /* Console.WriteLine("Nhap vao dinh dau: ");
-            int dinhdau =  int.Parse(Console.ReadLine());
-            int dinhcuoi = int.Parse(Console.ReadLine());
-            int trongso =  int.Parse(Console.ReadLine());
-            //graph.AddEdge(dinhdau, dinhdau, trongso);
-           */
-            graph.AddEdge(0, 2, 3);
+        /*----------------    // Thêm cạnh    --------------*/
+           
+            graph.AddEdge(0, 5, 3);
             graph.AddEdge(0, 4, 3);
             graph.AddEdge(1, 5, 3);
             graph.AddEdge(1, 4, 5);
             graph.AddEdge(5, 6, 3);
             Console.WriteLine("\n Ma tran ke sau khi them canh:");
             graph.DisplayMatrix();
-
-            // Xóa cạnh giữa đỉnh 0 và 1
-            graph.RemoveEdge(0, 1);
-
-            Console.WriteLine("\n Ma tran ke sau khi xoa canh:");
+        /*---------------------   // Sua trong so   -------------------*/
+            graph.UpdateCanh(1, 4, 7);
+            Console.WriteLine("\n Ma tran sau khi Update trong so");
             graph.DisplayMatrix();
             Console.ReadLine();
-            // theem canh trong so
-           
+
+
+        /*----------------    // Thêm cạnh random vao đồ thị    --------------*/
+
+            graph.RandomCanh(graph, 2);
+            Console.WriteLine("\n Ma tran ke sau khi Random canh:");
+            graph.DisplayMatrix();
+            Console.ReadLine();
+
+
+            
         }
     }
 }
