@@ -10,7 +10,6 @@ namespace CanhDT
     {
         public  int sldinh { get; private set; }
         private int[,] adjacencyMatrix;
-        private int[,] weightMatrix; // Ma trận trọng số
         public List<int> vertices { get; private set; }
 
 
@@ -18,25 +17,8 @@ namespace CanhDT
         {
             this.sldinh = sldinh;
             adjacencyMatrix = new int[sldinh, sldinh];
-            weightMatrix = new int[sldinh, sldinh];
             vertices = new List<int>();
         }
-    
-
-
-        public void AddEdgeWeight(int dinhdau, int dinhden, int trongso)
-        {
-            if (dinhdau >= 0 && dinhdau < sldinh && dinhden >= 0 && dinhden < sldinh)
-            {
-                weightMatrix[dinhdau, dinhden] = trongso;
-                weightMatrix[dinhden, dinhdau] = trongso; // Đối xứng cho đồ thị vô hướng
-            }
-            else
-            {
-                Console.WriteLine("Dinh nguon hoac dinh dich khong hop le.");
-            }
-        }
-
 
         
         public void AddEdge(int dinhdau, int dinhden, int trongso )
@@ -151,21 +133,6 @@ namespace CanhDT
                 {
                     Console.Write(adjacencyMatrix[i, j] + "\t");
                     
-                }
-                Console.WriteLine();
-            }
-        }
-
-
-        
-        public void DisplayWeightMatrix()
-        {
-            Console.WriteLine("Ma tran trong so:");
-            for (int i = 0; i < sldinh; i++)
-            {
-                for (int j = 0; j < sldinh; j++)
-                {
-                    Console.Write(weightMatrix[i, j] + "\t");
                 }
                 Console.WriteLine();
             }
